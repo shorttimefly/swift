@@ -8,13 +8,14 @@
 
 import UIKit
 
-class CityList: UITableView,UITableViewDataSource {
+class CityList: UITableView,UITableViewDataSource,UITableViewDelegate{
 
     let Tag_Cell_Label = 1
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.dataSource = self
+        self.delegate = self
     
     }
     
@@ -33,6 +34,11 @@ class CityList: UITableView,UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
+    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        
+//    }
     
     
     /*
