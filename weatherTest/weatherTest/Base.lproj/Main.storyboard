@@ -50,7 +50,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="CityList" id="Ebi-XF-mDx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="K2D-NI-D7o"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="K2D-NI-D7o">
+                            <connections>
+                                <segue destination="ef0-jm-wdz" kind="presentation" id="AQY-Tb-jvS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -58,20 +62,20 @@
             </objects>
             <point key="canvasLocation" x="960" y="364"/>
         </scene>
-        <!--Root View Controller-->
+        <!--AddCity-->
         <scene sceneID="tKc-W3-8i0">
             <objects>
-                <tableViewController id="hlY-Tw-Evr" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dkd-tU-Vwi">
+                <tableViewController id="hlY-Tw-Evr" customClass="AddCity" customModule="weatherTest" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" id="dkd-tU-Vwi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PpN-qY-Xe1">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="PpN-qY-Xe1">
+                                <rect key="frame" x="0.0" y="92" width="600" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PpN-qY-Xe1" id="7Vn-sW-dgU">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -81,11 +85,23 @@
                             <outlet property="delegate" destination="hlY-Tw-Evr" id="dal-SF-ajH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="BlZ-Ov-qOA"/>
+                    <navigationItem key="navigationItem" title="AddCity" id="2xN-oR-od8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="a0X-Zv-3d0">
+                            <connections>
+                                <segue destination="Q5q-tB-o8g" kind="unwind" unwindAction="cancelAddCity:" id="17U-v1-DAX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jyo-fs-VId">
+                            <connections>
+                                <segue destination="Q5q-tB-o8g" kind="unwind" unwindAction="saveCity:" id="KQa-o8-HQd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxy-8H-QP4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Q5q-tB-o8g" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1779" y="1062"/>
+            <point key="canvasLocation" x="2285" y="364"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="08A-fv-3bR">
@@ -101,7 +117,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFw-n9-yNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960" y="1062"/>
+            <point key="canvasLocation" x="1629" y="364"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7WQ-Lw-oM3">

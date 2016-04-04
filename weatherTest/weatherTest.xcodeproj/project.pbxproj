@@ -17,6 +17,7 @@
 		50037D9F1CAA3EAF00D59405 /* weatherTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50037D9E1CAA3EAF00D59405 /* weatherTestUITests.swift */; };
 		50037DAD1CAA47AD00D59405 /* CityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50037DAC1CAA47AD00D59405 /* CityList.swift */; };
 		50037DB51CAA4F1000D59405 /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50037DB41CAA4F1000D59405 /* NetManager.swift */; };
+		50037DB71CABCD5000D59405 /* AddCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50037DB61CABCD5000D59405 /* AddCity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		50037DA01CAA3EAF00D59405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50037DAC1CAA47AD00D59405 /* CityList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityList.swift; sourceTree = "<group>"; };
 		50037DB41CAA4F1000D59405 /* NetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
+		50037DB61CABCD5000D59405 /* AddCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCity.swift; path = ../AddCity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		50037DB01CAA4E5000D59405 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				50037DB61CABCD5000D59405 /* AddCity.swift */,
 				50037DAC1CAA47AD00D59405 /* CityList.swift */,
 			);
 			name = View;
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50037DB71CABCD5000D59405 /* AddCity.swift in Sources */,
 				50037D841CAA3EAE00D59405 /* weatherTest.xcdatamodeld in Sources */,
 				50037D7E1CAA3EAE00D59405 /* ViewController.swift in Sources */,
 				50037DAD1CAA47AD00D59405 /* CityList.swift in Sources */,
