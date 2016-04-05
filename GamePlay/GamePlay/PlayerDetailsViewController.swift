@@ -11,16 +11,26 @@ import UIKit
 class PlayerDetailsViewController: UITableViewController {
     
     var player:Player?
+    
+    var game: String?{
+        didSet {
+        gameLabel.text = game
+        }
+    }
 
     @IBOutlet weak var gameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     
-    
+    @IBAction func PickGame(segue: UIStoryboardSegue){
+        if let chooseGameController = segue.sourceViewController as? ChooseGameController, selectedGame = chooseGameController.selectedGame {
+            game = selectedGame
+        }
+    }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "savePlayer" {
-         player = Player(name: nameTextField.text!, game: "chess", rating: 3)
+         player = Player(name: nameTextField.text!, game: gameLabel.text, rating: 3)
         }
     }
     
@@ -32,6 +42,7 @@ class PlayerDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gameLabel.text = "choose game"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

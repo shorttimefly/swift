@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RMU-rt-AR4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PJ1-g7-fNt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Players View Controller-->
+        <!--MovieList-->
         <scene sceneID="CPX-bs-uE5">
             <objects>
                 <tableViewController id="K7V-lT-708" customClass="PlayersViewController" customModule="GamePlay" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,7 +62,7 @@
                             <outlet property="delegate" destination="K7V-lT-708" id="KiR-je-4aX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="BK0-Sw-46Z">
+                    <navigationItem key="navigationItem" title="MovieList" id="BK0-Sw-46Z">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GI5-fT-uH1">
                             <connections>
                                 <segue destination="5r9-VR-hUz" kind="presentation" id="qs3-39-pIm"/>
@@ -111,8 +111,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U3k-2x-N81">
-                                                    <rect key="frame" x="15" y="12" width="43" height="20"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U3k-2x-N81">
+                                                    <rect key="frame" x="15" y="12" width="44" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -186,6 +186,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="8Bu-vj-fjm" kind="unwind" identifier="PickGame" unwindAction="PickGame:" id="9op-EQ-V0r"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -196,57 +199,9 @@
                     <navigationItem key="navigationItem" title="Choose Game" id="0h4-EX-H5F"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGR-i8-tUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8Bu-vj-fjm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4111" y="-111"/>
-        </scene>
-        <!--Item 2-->
-        <scene sceneID="pm3-Cr-p9m">
-            <objects>
-                <viewController id="CoW-C6-U5I" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IXp-QW-vWg"/>
-                        <viewControllerLayoutGuide type="bottom" id="Nsr-cY-x9H"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Bwd-e3-2e9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hI-b1-pX5">
-                                <rect key="frame" x="273" y="289" width="48" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1hI-b1-pX5" firstAttribute="centerX" secondItem="Bwd-e3-2e9" secondAttribute="centerX" constant="-3" id="XpQ-X9-kYo"/>
-                            <constraint firstItem="1hI-b1-pX5" firstAttribute="centerY" secondItem="Bwd-e3-2e9" secondAttribute="centerY" id="f50-D2-xeq"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="lYV-XB-r5s"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SVJ-ny-Dem" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1209" y="585"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="irV-Pi-2lW">
-            <objects>
-                <tabBarController id="RMU-rt-AR4" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="jbh-NV-GTQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="PJ1-g7-fNt" kind="relationship" relationship="viewControllers" id="HTy-vx-Ilh"/>
-                        <segue destination="CoW-C6-U5I" kind="relationship" relationship="viewControllers" id="VKx-fE-nuB"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zCh-qR-o05" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="393" y="221"/>
         </scene>
         <!--Players-->
         <scene sceneID="hdS-qy-isX">
