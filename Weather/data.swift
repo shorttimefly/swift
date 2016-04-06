@@ -14,7 +14,6 @@ var cityList = ["beijing", "shenzhen", "dalian", "guangzhou", "qingdao", "suzhou
 
 var citylist = ["beijing", "shenzhen"]
 
-
 /*
 struct NameWeather {
     var city: String?
