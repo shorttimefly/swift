@@ -10,13 +10,14 @@ import UIKit
 
 var weatherApi = WeatherApi()
 var url = "http://apis.baidu.com/apistore/weatherservice/weather"
-var httpArg = "citypinyin=beijing"
+var httpArg = "citypinyin="
+var cityName = "beijing"
 
 class CityListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherApi.request(url, httpArg: httpArg)
+        //weatherApi.request(url, httpArg: httpArg, cityName: cityName)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,12 +44,18 @@ class CityListController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CityListCell", forIndexPath: indexPath)
+        let city = citylist[indexPath.row]
+        let CityWeatherList = weatherApi.request(url, httpArg: httpArg, cityName: city)
+        let cityWeatherList = CityWeatherList.cityWeather
         
         if let CityNameLabel = cell.viewWithTag(100) as? UILabel{
           //  CityNameLabel.text = citylist[indexPath]
+            CityNameLabel.text = city
         }
 
+        if let CityWeatherLabel = cell.viewWithTag(101) as? UILabel{
         
+        }
         // Configure the cell...
 
         return cell

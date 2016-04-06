@@ -8,10 +8,14 @@
 
 import Foundation
 
-var cityList: [String] = ["beijing", "shenzhen", "dalian", "guangzhou", "qingdao", "suzhou", "nanjing"]
+var CityList: [String]?
+
+var cityList = ["beijing", "shenzhen", "dalian", "guangzhou", "qingdao", "suzhou", "nanjing"]
 
 var citylist = ["beijing", "shenzhen"]
 
+
+/*
 struct NameWeather {
     var city: String?
     var temp: Int?
@@ -20,4 +24,10 @@ struct NameWeather {
         self.city = city
         self.temp = temp
     }
+
+
 }
+*/
+
+//33°C
+
