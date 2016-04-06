@@ -9,7 +9,7 @@
 import UIKit
 
 class WeatherApi: NSObject{
-    func  request(httpUrl: String, httpArg: String,cityName: String) {
+    func  request(httpUrl: String, httpArg: String,cityName: String){
         let req = NSMutableURLRequest(URL: NSURL(string: httpUrl + "?" + httpArg+cityName)!)
         req.timeoutInterval = 6
         req.HTTPMethod = "GET"
@@ -21,17 +21,17 @@ class WeatherApi: NSObject{
             }
             let json = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
             let weatherData  = json["retData"]
-            
+            print(weatherData)
             //let cityName = weatherData?!.objectForKey("city") as! String
             //let htmpData = weatherData?!.objectForKey("h_tmp") as! String
             //let ltmpData = weatherData?!.objectForKey("l_tmp") as! String
-            let cityWeather = weatherData?!.objectForKey("temp") as! Int
+            let cityWeather = weatherData?!.objectForKey("temp") as? Int
             //let timeData = weatherData?!.objectForKey("time") as! String
             //let dateData = weatherData?!.objectForKey("date") as! String
             //dispatch_async(dispatch_get_main_queue(), { () -> Void in
             //})
-        }
-    }
+            }
+            }
     
 
 }
