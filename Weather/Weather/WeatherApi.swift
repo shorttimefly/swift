@@ -8,14 +8,16 @@
 
 import UIKit
 
+var reTemp: String = "loading"
+
+
 class WeatherApi: NSObject{
-    func  request(cityName: String) -> String{
+    func  request(cityName: String){
         let req = NSMutableURLRequest(URL: NSURL(string: "http://apis.baidu.com/apistore/weatherservice/weather?citypinyin=" + cityName )! )
         req.timeoutInterval = 6
         req.HTTPMethod = "GET"
         req.addValue("a81d19e6348737b6f835215aeedc55a0", forHTTPHeaderField: "apikey")
-        var reTemp: String?
-        print("api go")
+        print(reTemp)
         NSURLConnection.sendAsynchronousRequest(req, queue: NSOperationQueue.mainQueue()) {
             (response, data, error) in
             if let _ = error{
@@ -33,8 +35,9 @@ class WeatherApi: NSObject{
             //dispatch_async(dispatch_get_main_queue(), { () -> Void in
             //})
             reTemp = cityWeather
+            print(reTemp)
             }
-        return reTemp!
+     
             }
     
 

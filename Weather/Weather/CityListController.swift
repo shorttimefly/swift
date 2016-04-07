@@ -8,13 +8,13 @@
 
 import UIKit
 
-var cityName = "beijing"
 
 class CityListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherApi.request(cityName)
+        weatherApi.request("beijing")
+            print(reTemp)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,7 +43,7 @@ class CityListController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("CityListCell", forIndexPath: indexPath)
         let city = cityweather[indexPath.row]
         let cityName = city.cityName
-        print("cityName OK")
+        //weatherApi.request(cityName)
         let cityTemp = city.cityTemp
         
         //weatherApi.request(city.cityName)
