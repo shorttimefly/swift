@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
 var weatherApi = WeatherApi()
-var cityWeatherModel = CityWeatherModel()
-struct CityWeatherModel {
+
+struct  CityWeatherModel {
     
     var cityName = ""
     var cityTemp = ""

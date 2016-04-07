@@ -7,8 +7,7 @@
 //
 
 import UIKit
-var url = "http://apis.baidu.com/apistore/weatherservice/weather"
-var httpArg = "citypinyin="
+
 var cityName = "beijing"
 
 class CityListController: UITableViewController {
@@ -37,21 +36,28 @@ class CityListController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return citylist.count
+        return cityweather.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CityListCell", forIndexPath: indexPath)
-        let city = citylist[indexPath.row]
+        let city = cityweather[indexPath.row]
+        let cityName = city.cityName
+        print("cityName OK")
+        let cityTemp = city.cityTemp
+        
+        //weatherApi.request(city.cityName)
     //    let CityWeatherList = weatherApi.request(url, httpArg: httpArg, cityName: city)
         
         if let CityNameLabel = cell.viewWithTag(100) as? UILabel{
           //  CityNameLabel.text = citylist[indexPath]
-            CityNameLabel.text = city
+            CityNameLabel.text = cityName
+            
         }
 
         if let CityWeatherLabel = cell.viewWithTag(101) as? UILabel{
-          //CityWeatherLabel.text = CityWeatherList as! String + "C"
+          CityWeatherLabel.text = cityTemp + "°C"
+            
         }
         // Configure the cell...
 
