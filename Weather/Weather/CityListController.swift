@@ -8,13 +8,14 @@
 
 import UIKit
 
+var weatherData = WeatherData()
 
 class CityListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherApi.request("beijing")
-            print(reTemp)
+//weatherApi.request("beijing")
+  //          print(reTemp)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -36,35 +37,29 @@ class CityListController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return cityweather.count
+        return weatherData.citytemp.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CityListCell", forIndexPath: indexPath)
-        let city = cityweather[indexPath.row]
-        let cityName = city.cityName
-        //weatherApi.request(cityName)
-        let cityTemp = city.cityTemp
-        
-        //weatherApi.request(city.cityName)
-    //    let CityWeatherList = weatherApi.request(url, httpArg: httpArg, cityName: city)
-        
+        let city = weatherData.citytemp[indexPath.row]
         if let CityNameLabel = cell.viewWithTag(100) as? UILabel{
-          //  CityNameLabel.text = citylist[indexPath]
-            CityNameLabel.text = cityName
-            
-        }
-
-        if let CityWeatherLabel = cell.viewWithTag(101) as? UILabel{
-          CityWeatherLabel.text = cityTemp + "°C"
-            
-        }
-        // Configure the cell...
-
+                    CityNameLabel.text = city.city!
+              }
+        
+        if let cityTempLabel = cell.viewWithTag(101) as? UILabel{
+        weatherApi.request(city.city!) { (result, error) -> () in
+            if let _ = error {
+                print(error)
+            } else {
+                    let cityTemp = result as! WeatherModel
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                   cityTempLabel.text = cityTemp.temp!
+                })}}}
         return cell
     }
     
-    @IBAction func backCityList(segue: UIStoryboardSegue){
+    func backCityList(segue: UIStoryboardSegue){
     
     }
 
@@ -100,16 +95,6 @@ class CityListController: UITableViewController {
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     */
 

@@ -113,7 +113,7 @@
                     <navigationItem key="navigationItem" title="AddCity" id="HXA-ay-kHO">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="n5n-17-x0T">
                             <connections>
-                                <segue destination="zhf-MF-G98" kind="unwind" unwindAction="backCityList:" id="6t4-m9-5xn"/>
+                                <segue destination="zhf-MF-G98" kind="unwind" unwindAction="backCityList:" id="ox6-Z7-ppR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
