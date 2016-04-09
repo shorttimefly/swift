@@ -11,7 +11,7 @@ import UIKit
 var weatherData = WeatherData()
 
 class CityListController: UITableViewController {
-
+    var city : String?
     override func viewDidLoad() {
         super.viewDidLoad()
 //weatherApi.request("beijing")
@@ -51,18 +51,44 @@ class CityListController: UITableViewController {
         weatherApi.request(city.city!) { (result, error) -> () in
             if let _ = error {
                 print(error)
-            } else {
+                } else {
                     let cityTemp = result as! WeatherModel
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                   cityTempLabel.text = cityTemp.temp!
-                })}}}
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    cityTempLabel.text = cityTemp.temp!
+
+                    })
+                    }
+            }
+        }
         return cell
     }
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let index = indexPath.row
+         cityDetail = weatherData.citytemp[index]
+        print((cityDetail?.city)! + (cityDetail?.temp)!)
+        }
+        
+    
     
     func backCityList(segue: UIStoryboardSegue){
     
     }
+    
+   @IBAction func pickCity(segue:UIStoryboardSegue){
+        if let pickcity = segue.sourceViewController as? ChooseCity , choosecity = pickcity.choosecity{
+            city = choosecity
+            weatherData.addCity(city!)
+        }
+        
+        let indexPath = NSIndexPath(forRow: weatherData.citytemp.count - 1, inSection: 0)
+        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic )
 
+    }
+
+}
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -98,4 +124,4 @@ class CityListController: UITableViewController {
     }
     */
 
-}
+

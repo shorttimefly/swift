@@ -62,7 +62,8 @@ class ChooseGameController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    //提供动画效果
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         if let index = selectedGameIndex{
         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
@@ -74,7 +75,9 @@ class ChooseGameController: UITableViewController {
         cell?.accessoryType = .Checkmark
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    //提供数据给原页面
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PickGame"{
             if let cell = sender as? UITableViewCell{
             let indexPath = tableView.indexPathForCell(cell)

@@ -8,10 +8,20 @@
 
 import UIKit
 
+var cityDetail: WeatherModel?
+
 class ViewController: UIViewController {
 
+    @IBOutlet weak var cityName: UILabel!
+    
+    @IBOutlet weak var tempLabel: UILabel!
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityName.text = cityDetail?.city
+      //  tempLabel.text = weatherApi.request(cityDetail?.city, completion: completion)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -19,7 +29,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 
 }
 

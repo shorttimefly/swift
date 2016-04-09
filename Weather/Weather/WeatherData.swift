@@ -23,6 +23,11 @@ class WeatherData: NSObject {
         return citytemp
     }
     
+    func addCity(city:String){
+        let citytempx = WeatherModel(city: city, temp: "loading")
+        citytemp.append(citytempx)
+    }
+    
 //    func tempApi(){
 //        for index in 0...citytemp.count-1 {
 //        let city = citytemp[index].city

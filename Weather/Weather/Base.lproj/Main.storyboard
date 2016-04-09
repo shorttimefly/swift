@@ -16,9 +16,40 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="city" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1we-Vh-D0g">
+                                <rect key="frame" x="0.0" y="123" width="600" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="zc4-xi-12S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGA-EM-aSZ">
+                                <rect key="frame" x="0.0" y="200" width="600" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="g4Y-sv-HT4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.32514447388246159" green="0.63197551467064839" blue="0.75191366792929293" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="YGA-EM-aSZ" firstAttribute="top" secondItem="1we-Vh-D0g" secondAttribute="bottom" constant="45" id="GLe-Xf-di0"/>
+                            <constraint firstItem="1we-Vh-D0g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="103" id="gG7-jO-Lg0"/>
+                            <constraint firstItem="YGA-EM-aSZ" firstAttribute="leading" secondItem="1we-Vh-D0g" secondAttribute="leading" id="iUc-2W-Faj"/>
+                            <constraint firstItem="1we-Vh-D0g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nBO-jD-blQ"/>
+                            <constraint firstItem="YGA-EM-aSZ" firstAttribute="trailing" secondItem="1we-Vh-D0g" secondAttribute="trailing" id="sWq-ga-fFx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="WeatherDetail" id="oT9-QY-l8o"/>
+                    <connections>
+                        <outlet property="cityName" destination="1we-Vh-D0g" id="clf-fR-fob"/>
+                        <outlet property="tempLabel" destination="YGA-EM-aSZ" id="FcT-hV-wOg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,7 +88,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="YrB-jC-Wr3"/>
+                                    <segue destination="BYZ-38-t0r" kind="popover" identifier="CityDetail" popoverAnchorView="xpM-Q9-PbQ" id="YrB-jC-Wr3">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -87,14 +120,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="yPf-dg-mXx" style="IBUITableViewCellStyleDefault" id="jzB-p5-EZs">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityName" textLabel="yPf-dg-mXx" style="IBUITableViewCellStyleDefault" id="jzB-p5-EZs">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jzB-p5-EZs" id="tsj-7X-D8v">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="CityName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yPf-dg-mXx">
+                                        <label opaque="NO" multipleTouchEnabled="YES" tag="102" contentMode="left" text="CityName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yPf-dg-mXx">
                                             <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -103,6 +136,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="zhf-MF-G98" kind="unwind" identifier="PickCity" unwindAction="pickCity:" id="aYq-ZE-J6R"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -113,7 +149,7 @@
                     <navigationItem key="navigationItem" title="AddCity" id="HXA-ay-kHO">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="n5n-17-x0T">
                             <connections>
-                                <segue destination="zhf-MF-G98" kind="unwind" unwindAction="backCityList:" id="ox6-Z7-ppR"/>
+                                <segue destination="zhf-MF-G98" kind="unwind" identifier="BackCityList" unwindAction="backCityList:" id="ox6-Z7-ppR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

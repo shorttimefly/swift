@@ -24,6 +24,7 @@ class PlayerDetailsViewController: UITableViewController {
     @IBAction func PickGame(segue: UIStoryboardSegue){
         if let chooseGameController = segue.sourceViewController as? ChooseGameController, selectedGame = chooseGameController.selectedGame {
             game = selectedGame
+            
         }
     }
     
